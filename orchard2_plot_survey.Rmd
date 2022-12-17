@@ -1,0 +1,413 @@
+---
+title: "Supporting Material A"
+author: "Shinichi Nakagawa, Malgorzata Lagisz, Rose E. O’Dea, Joanna Rutkowska, Yefeng Yang, Daniel W.A. Noble, and Alistair M. Senior"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: hide
+    depth: 4
+    number_sections: no
+    theme:  cosmo # “default”, “cerulean”, “journal”, “flatly”, “darkly”, “readable”, “spacelab”, “united”, “cosmo”, “lumen”, “paper”, “sandstone”, “simplex”, “yeti”
+    toc: yes
+    toc_float: yes
+    toc_depth: 4
+  pdf_document:
+    toc: yes
+subtitle:  "The Orchard Plot v.2: ..."
+#bibliography: references.bib
+#biblio-style: "apalike"
+#csl: nature.csl
+link-citations: yes
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, eval = TRUE}
+#knitter setting
+knitr::opts_chunk$set(
+message = FALSE,
+warning = FALSE, # no warnings
+cache = TRUE,# Caching to save time when knitting
+tidy = TRUE, 
+echo = TRUE
+#fig.width = 9
+)
+
+# cleaning up
+#rm(list=ls())
+```
+
+## Setup
+Loading packages and custom functions.   
+
+```{r load packages, eval = TRUE}
+pacman::p_load(tidyverse, # tidy family and related packages below
+               readxl, #read Excel files
+               kableExtra, # add features to a kable() output 
+               purrr,    #functional programming tools
+               magrittr, # extending piping
+               pander,   # nice tables
+               plotly,     # interactive plots using ggplot2
+               formatR, # provides a function tidy_source() to format R source automatically
+               here #simplifying file paths
+)
+```
+
+
+# Supplementary Methods and Results - Literature survey 
+
+ 
+## Literature search - methods   
+
+The original literature survey was conducted in 2019 to examine how forest plots are used in ecology and evolution, and what features they have. The resulting dataset was used in the original orchard plot publication:   
+
+Nakagawa, S., Lagisz, M., O'Dea, R. E., Rutkowska, J., Yang, Y., Noble, D. W., & Senior, A. M. (2020). The Orchard Plot: Cultivating a Forest Plot for Use in Ecology, Evolution and Beyond. Research Synthesis Methods https://doi.org/10.1002/jrsm.1424 12: 4-12 (EcoEvoRxiv https://doi.org/10.32942/osf.io/epqa7)  
+
+Here is a brief description of the systematic search of ecology and evolution journals underlying the data set from the SI materials from the above paper: "In brief, we collected the ISSN of journals classified under ‘Ecology’ and/or ‘Evolutionary Biology’, according to the ISI InCites Journal Citation Reports. We then searched within these journals for papers published between 1 January 2010 and 25 March 2019, and which contained any of the following search terms in the title, abstract, or keywords: “meta-analy* “, “metaanaly* “, or “meta-regression”. To reduce the large pool of papers to a representative sample, we filtered the results to only include the subset of journals which often published meta-analyses: the top 10 most represented ecology journals; the top 10 most represented evolution journals, and; the top 11 most represented journals that were classified as both ecology and evolutionary biology. We then took a random sample of papers from each journal to give 297 papers for screening. During screening we identified 102 papers that unambiguously addressed a question in the fields of ecology or evolutionary biology, performed a search for and collected data from primary literature, extracted or calculated the same type of effect size from multiple studies, and analysed those effect sizes in a statistical model. These criteria identify a representative sample of 102 ‘traditional’ published meta-analyses (Extended Data Table 1).   
+
+**Extended Data Table 1:**   
+List of 102 representative meta-analytic papers published in ecology and/or evolution journals.      
+
+```{r list of papers, include = TRUE, eval = TRUE}
+# getting the papers data and formatting some variables (turning character vectors to factors)
+papers_data <- read_excel(here("data", "forest_plot_fulltext_records.xlsx"), na = "NA") %>% 
+   mutate_if(is.character, as.factor)
+#str(papers_data) #102 papers
+#retain fulltext_ID, authors, pub_year, title, journal, volume, pages and make scrollable table:
+papers_data %>% select(fulltext_ID, authors, pub_year, title, journal, volume, pages) %>% kable("html") %>%
+    kable_styling("striped", position = "left") %>%
+  scroll_box(width = "100%", height = "300px")
+```
+" (end of quotation)
+
+ 
+
+## Literature survey for orchard plot pacakge update      
+
+We designed a new data survey to answer the following questions relevant to the new features of the orchard plot package:   
+ 1.	How many papers (percentage of 102 surveyed) conducted some form of meta-regression and/or subgroup analysis? [Working definitions: Meta-regression = continuous or categorical predictor included in a model as a fixed effect. Sub-group analysis = separate meta-analytic models run for each level of a categorical predictor.]     
+ 2.	How many papers (percentage of 102 surveyed) have at least one categorical variable/moderator? [This could be a variable/moderator that was used in analyses or to subset the data for analyses.]   
+ 3. How many papers (percentage of 102 surveyed) have at least one model in a paper with more than one categorical moderator? [Note, this should be a multivariate model with at least two categorical moderators.]   
+ 4. How many papers (percentage of 102 surveyed) have at least one model with at least one categorical moderator and one continuous moderator? [Note, this is only for predictors variables other than SE (sample size) or publication year.] 
+ 5. How many papers (percentage of 102 surveyed) that used a multi-moderator regression also modeled interactions?    
+ 6. How many papers (percentage of 102 surveyed) that used a multi-moderator regression have at least one plot (figure) made from a multi-moderator meta-regression? [This is a plot where plotted values are marginalized other variables in a multi-moderator meta-regression model]. So many people will make figures from uni-moderator meta-regression.  
+ 7.  How many papers (percentage of 102 surveyed) have at least one test for heteroskedasticity (heteroscedasticity)? [i.e. test for homogeneity of variance or heterogeneous variance between different groups.]   
+ 8.  How many papers (percentage of 102 surveyed) cite an R software package they used for meta-analysis?   
+ 9.  How many papers (percentage of 102 surveyed) cite an R software package they used for graphical presentation of meta-analytic results?  
+ 10.   How many papers (percentage of 102 surveyed) cite a software package they used for data extraction for meta-analysis?  
+ 
+We had the following predictions for the above questions:    
+ 1.	Most of the surveyed papers conducted some form of meta-regression and/or subgroup analysis. Using both approaches in a single could be quite common way of dealing with complex data structures (e.g. multiple outcomes and multiple moderators).  
+ 2.	Most of the papers have at least one categorical variable/moderator.  
+ 3. Not many papers have at least one model with more than one categorical moderator.  
+ 4. Not many papers have at least one model with at least one categorical moderator and one continuous moderator.  
+ 5. Few papers that used a multi-moderator regression also model interactions.     
+ 6. Few papers that used a multi-moderator regression have at least one plot (figure) made from a multi-moderator meta-regression.   
+ 7.  There is very limited testing for heteroskedasticity (heteroscedasticity).   
+ 8.  Few papers cite an R software package they used for meta-analysis.   
+ 9.  Even fewer papers cite an R software package they used for graphical presentation of meta-analytic results.  
+ 10. In contrast, citing software packages used for data extraction for meta-analysis is common.   
+
+
+### Data extraction
+We designed a custom data extraction form to gather information on the types of models and plots used in 102 included articles and implemented it as a Google Form.  We based our classification on the information present in the full texts and supplementary files of the articles.     
+
+Two researchers (from a pool of three: ML, JR, YY) independently extracted data from all articles. All three reviewers discussed and resolved any disagreements in the coded data. Consensus data was used for the analyses.   
+
+## Literature survey - Results   
+Data loading and preprocessing. Prepocessed data is presented in Extended Data Table 2.   
+
+```{r load coded data, eval = TRUE}
+# getting the data and formatting some variables (turning character vectors to factors)
+full_data <- read_csv(here("data", "orchaRd2 (Responses) - Consesus Responses.csv"), na = "NA") %>%    mutate_if(is.character, as.factor)
+#str(full_data) #each row represents one scoring attempt, so it is usually 2 rows per figure file (since 2 people were assessing independently)
+```
+
+```{r clean coded data, include = FALSE, eval = TRUE}
+#names(full_data)
+#View(full_data)
+
+#create a copy to be reduced to data used for analyses, also remove unnecessary columns and rename the other
+dat <- full_data  %>% select(-starts_with("Comment"), -"Timestamp", -"Respondents initials")
+dat <- dat  %>% rename(Article_id = "Article id", 
+                       Metaregression_subgroup = "Q 1: Does a paper conduct meta-regression and/or subgroup analysis?", 
+                       One_categorical_var = "Q 2: Does the study has at least one categorical variable/moderator?", 
+                       Test_heteroskedasticity = "Q 3: Does a paper test for heteroskedasticity (heteroscedasticity)?", 
+                       Many_categorical_var = "Q 4: Does at least one model in a paper have more than one categorical moderator?", 
+                       Categorical_cont_var = "Q 5: Does at least one model in a paper have at least one categorical moderator and one continuous moderator?", 
+                       Interactions_mod = "Q 6: If they had a multi-moderator regression, did they run interactions? If so, what type of interactions?", 
+                       Multimoderator_plot = "Q 7: Was a plot (figure) made from a multi-moderator meta-regression?", 
+                       Cited_ma_package = "Q 8: Does a paper cite an R software package they used for meta-analysis?", 
+                       Cited_plot_package = "Q 9: Does a paper cite an R software package they used for graphical presentation of meta-analytic results?", 
+                       Cited_extr_package = "Q 10 (Bonus Question): Does a paper cite a software package they used for data extraction for meta-analysis? (e.g. metaDigitise, PlotDigitizer)"
+                       )
+#names(dat)
+
+#check Article_id
+length(unique(dat$Article_id)) #102
+all <- unique(dat$Article_id) #store IDs of all papers
+
+# #recode factor levels into shorter text, where needed:
+# levels(dat$Metaregression_subgroup) #ok
+# levels(dat$One_categorical_var) #ok
+# levels(dat$Many_categorical_var) #ok
+# levels(dat$Test_heteroskedasticity) #ok
+# levels(dat$Many_categorical_var)
+# levels(dat$Categorical_cont_var) #ok
+# levels(dat$Interactions_mod) #this one will require splitting (multiple values)
+# levels(dat$Multimoderator_plot) #ok
+# levels(dat$Cited_ma_package) #ok
+# levels(dat$Cited_plot_package) #ok
+# levels(dat$Cited_extr_package) #ok
+
+#re-arrange columns
+dat <- dat %>%
+  select(Article_id, Metaregression_subgroup, One_categorical_var, Many_categorical_var, Categorical_cont_var, Interactions_mod, Multimoderator_plot, Test_heteroskedasticity, Cited_ma_package, Cited_plot_package, Cited_extr_package)
+```
+
+
+**Extended Data Table 2:** 
+Preprocessed coded data from the literature survey of 102 meta-analytic papers in ecology or evolution.
+
+```{r table of coded data, eval = TRUE}
+# making a scrollable table
+kable(dat, "html") %>%
+  kable_styling("striped", position = "left") %>%
+  scroll_box(width = "100%", height = "300px")
+```
+
+
+### 1. How many papers conducted some form of meta-regression and/or subgroup analysis?  
+   
+**Answer 1.**	   
+Only `r sum(dat$Metaregression_subgroup == "None of the above")` papers (`r round(sum(dat$Metaregression_subgroup == "None of the above")/102*100, 2)`%, out of 102 surveyed papers) did not use either meta-regression or subgroup analysis. Meta-regression was more commonly used than subgroup analysis (`r round(sum(dat$Metaregression_subgroup == "Meta-regression")/102*100, 2)`% and `r round(sum(dat$Metaregression_subgroup == "Sub-group analysis")/102*100, 2)`%, respectively, when only one of these approaches was used, but they were commonly used together, `r round(sum(dat$Metaregression_subgroup == "Both")/102*100, 2)`%). [Working definitions used: Meta-regression = continuous or categorical predictor included in a model as a fixed effect. Sub-group analysis = separate meta-analytic models run for each level of a categorical predictor.]            
+
+```{r summarise Metaregression_subgroup, eval = TRUE, fig.height = 4}
+#table(dat$Metaregression_subgroup, useNA = "always")
+
+## set the levels in order we want:
+dat$Metaregression_subgroup <- factor(dat$Metaregression_subgroup, levels = rev(c("Meta-regression", "Sub-group analysis", "Both", "None of the above")))
+
+dat %>% 
+  group_by(Metaregression_subgroup) %>% 
+  count() %>%
+  ggplot(aes(x = Metaregression_subgroup, y = n)) +
+  geom_bar(stat = "identity", position = position_dodge(0.9)) +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.text.y = element_text(margin = margin(0, 5, 0, 0))) + 
+  xlab("") +
+  ylab("Number of articles") +
+  ylim(0, 100)
+```
+
+
+### 2.	How many papers have at least one categorical variable/moderator?   
+   
+**Answer 2.**	   
+Almost all `r sum(dat$One_categorical_var == "Yes")` papers (`r round(sum(dat$One_categorical_var == "Yes")/102*100, 2)`%, out of 102 surveyed papers) had at least one categorical variable/moderator. [Working definition used: categorical variable/moderator could be a variable/moderator that was used in analyses or to subset the data for analyses.]     
+
+```{r summarise One_categorical_var, eval = TRUE, fig.height = 2}
+#table(dat$One_categorical_var, useNA = "always")
+dat %>% 
+  group_by(One_categorical_var) %>% 
+  count() %>%
+  ggplot(aes(x = One_categorical_var, y = n)) +
+  geom_bar(stat = "identity", position = position_dodge(0.9)) +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.text.y = element_text(margin = margin(0, 5, 0, 60))) + 
+  xlab("") +
+  ylab("Number of articles") +
+  ylim(0, 100)
+```
+
+
+### 3.	How many papers have at least one model in a paper with more than one categorical moderator?    
+   
+**Answer 3.**	   
+Almost half of the surveyed papers (`r round(sum(dat$Many_categorical_var == "Yes")/102*100, 2)`%, out of 102 surveyed papers) had more than one categorical variable/moderator included in a statistical model.   
+
+```{r summarise Many_categorical_var, eval = TRUE, fig.height = 2}
+#table(dat$Many_categorical_var, useNA = "always")
+dat %>% 
+  group_by(Many_categorical_var) %>% 
+  count() %>%
+  ggplot(aes(x = Many_categorical_var, y = n)) +
+  geom_bar(stat = "identity", position = position_dodge(0.9)) +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.text.y = element_text(margin = margin(0, 5, 0, 60))) + 
+  xlab("") +
+  ylab("Number of articles") +
+  ylim(0, 100)
+```
+
+
+### 4.	How many papers have at least one model with at least one categorical moderator and one continuous moderator?  
+   
+**Answer 4.**	   
+Around quarter (`r round(sum(dat$Categorical_cont_var == "Yes", na.rm = TRUE)/102*100, 2)`%, out of 102 surveyed papers) of papers had at least one categorical variable/moderator. [Note, this is only for predictors variables other than SE (sample size) or publication year.]     
+
+```{r summarise Categorical_cont_var, eval = TRUE, fig.height = 3}
+#table(dat$Categorical_cont_var, useNA = "always")
+dat %>% 
+  group_by(Categorical_cont_var) %>% 
+  count() %>%
+  ggplot(aes(x = Categorical_cont_var, y = n)) +
+  geom_bar(stat = "identity", position = position_dodge(0.9)) +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.text.y = element_text(margin = margin(0, 5, 0, 60))) + 
+  xlab("") +
+  ylab("Number of articles") +
+  ylim(0, 100)
+```
+
+
+### 5.	How many papers that used a multi-moderator regression also modeled interactions?    
+   
+**Answer 5.**	   
+Most (`r sum(dat$Interactions_mod == "No", na.rm = TRUE) + sum(is.na(dat$Interactions_mod))`) papers (`r round((sum(dat$Interactions_mod == "No", na.rm = TRUE) + sum(is.na(dat$Interactions_mod)))/102*100, 2)`%, out of 102 surveyed papers) did not model interactions as part of their statistical models. When interactions were included (one paper could have tested more than one type of interactions), continuous x continuous variable interactions were least frequent (`r round(7/30*100, 2)`%, out of 30  papers with interactions) . [Note: by interactions we mean statistical interactions between variables in a model, not biological/ecological interactions analysed as effect sizes, e.g. between species.]     
+
+```{r summarise Interactions_mod, eval = TRUE, fig.height = 3}
+#table(dat$Interactions_mod, useNA = "always")
+dat$Interactions_mod <- str_replace_all(dat$Interactions_mod, ", ", "; ") #fix  separators
+
+dat %>% 
+  filter(!is.na(Interactions_mod)) %>%
+  filter(Interactions_mod != "No") %>% 
+  pull(Interactions_mod) %>% 
+  strsplit("; ") %>% 
+  unlist() -> Interactions_mod_sep
+
+## fix typos and inconsistencies:
+Interactions_mod_sep <- gsub("continious x categorical", "categorical x continious", Interactions_mod_sep)
+Interactions_mod_sep <- gsub("continious x continuous", "continious x continious", Interactions_mod_sep)
+
+table(Interactions_mod_sep) %>% as.data.frame() %>%
+  ggplot(aes(x = Interactions_mod_sep, y = Freq)) +
+  geom_bar(stat = "identity", position = position_dodge(0.9)) +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.text.y = element_text(margin = margin(0, 5, 0, 30))) + 
+  scale_x_discrete(labels = c("categorical x\n categorical","categorical x\n continous","continous x\n continous"))+ 
+  xlab("") +
+  ylab("Number of articles") +
+  ylim(0, 100)
+```
+
+
+### 6.	How many papers that used a multi-moderator regression have at least one plot (figure) made from a multi-moderator meta-regression?     
+   
+**Answer 6.**	   
+Majority of the included papers (`r round(sum(dat$Multimoderator_plot == "No", na.rm = TRUE)/102*100, 2)`%, out of 102 surveyed papers) did not visualise marginalised results of a multi-moderator regression in a plot (figure).   
+
+```{r summarise Multimoderator_plot, eval = TRUE, fig.height = 3}
+#table(dat$Multimoderator_plot, useNA = "always")
+dat %>% 
+  group_by(Multimoderator_plot) %>% 
+  count() %>%
+  ggplot(aes(x = Multimoderator_plot, y = n)) +
+  geom_bar(stat = "identity", position = position_dodge(0.9)) +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.text.y = element_text(margin = margin(0, 5, 0, 60))) + 
+  xlab("") +
+  ylab("Number of articles") +
+  ylim(0, 100)
+```
+
+
+### 7.	How many papers have at least one test for heteroskedasticity (heteroscedasticity)?   
+   
+**Answer 7.**	   
+Only `r sum(dat$Test_heteroskedasticity == "Yes")` papers (`r round(sum(dat$Test_heteroskedasticity == "Yes", na.rm = TRUE)/102*100, 2)`%, out of 102 surveyed papers) explicitly tested for heteroskedasticity in their data. [[i.e. tested for homogeneity of variance or heterogeneous variance between different groups.]     
+
+```{r summarise Test_heteroskedasticity, eval = TRUE, fig.height = 2}
+#table(dat$Test_heteroskedasticity, useNA = "always")
+dat %>% 
+  group_by(Test_heteroskedasticity) %>% 
+  count() %>%
+  ggplot(aes(x = Test_heteroskedasticity, y = n)) +
+  geom_bar(stat = "identity", position = position_dodge(0.9)) +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.text.y = element_text(margin = margin(0, 5, 0, 60))) + 
+  xlab("") +
+  ylab("Number of articles") +
+  ylim(0, 100)
+```
+
+
+### 8.	How many papers cite an R software package they used for meta-analysis?      
+   
+**Answer 8.**	   
+R packages used for meta-analysis were commonly cited (`r sum(dat$Cited_ma_package == "Yes")` papers, `r round(sum(dat$Cited_ma_package == "Yes")/((sum(dat$Cited_ma_package == "Yes")+sum(dat$Cited_ma_package == "No")))*100, 2)`%, out of `r ((sum(dat$Cited_ma_package == "Yes")+sum(dat$Cited_ma_package == "No")))`` surveyed papers that used R).      
+
+```{r summarise Cited_ma_package, eval = TRUE, fig.height = 4}
+#table(dat$Cited_ma_package, useNA = "always")
+
+## set the levels in order we want:
+dat$Cited_ma_package <- factor(dat$Cited_ma_package, levels = rev(c("Yes", "No", "Unclear", "Did not use R")))
+
+dat %>% 
+  group_by(Cited_ma_package) %>% 
+  count() %>%
+  ggplot(aes(x = Cited_ma_package, y = n)) +
+  geom_bar(stat = "identity", position = position_dodge(0.9)) +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.text.y = element_text(margin = margin(0, 5, 0, 30))) + 
+  xlab("") +
+  ylab("Number of articles") +
+  ylim(0, 100)
+```
+
+
+### 9.	How many papers cite an R software package they used for graphical presentation of meta-analytic results?  
+   
+**Answer 9.**	   
+Only `r sum(dat$Cited_plot_package == "Yes")` papers (`r round(sum(dat$Cited_plot_package == "Yes")/(sum(dat$Cited_ma_package == "Yes")+sum(dat$Cited_ma_package == "No"))*100, 2)`%, out of `r sum(dat$Cited_ma_package == "Yes")+sum(dat$Cited_ma_package == "No")` surveyed papers that used R) cited R package used to present meta-analytic results.    
+
+```{r summarise Cited_plot_package, eval = TRUE, fig.height = 4}
+#table(dat$Cited_plot_package, useNA = "always")
+
+## set the levels in order we want:
+dat$Cited_plot_package <- factor(dat$Cited_plot_package, levels = rev(c("Yes", "No", "Unclear", "Did not use R")))
+
+dat %>% 
+  group_by(Cited_plot_package) %>% 
+  count() %>%
+  ggplot(aes(x = Cited_plot_package, y = n)) +
+  geom_bar(stat = "identity", position = position_dodge(0.9)) +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.text.y = element_text(margin = margin(0, 5, 0, 40))) + 
+  xlab("") +
+  ylab("Number of articles") +
+  ylim(0, 100)
+```
+
+
+### 10.	How many papers cite a software package they used for data extraction for meta-analysis?       
+   
+**Answer 10.**	   
+Almost half of the papers (`r sum(dat$Cited_extr_package == "Yes")`, `r round(sum(dat$Cited_extr_package == "Yes")/102*100, 2)`%, out of 102 surveyed papers) cited software used for data extraction from figures.   
+
+```{r summarise Cited_extr_package, eval = TRUE, fig.height = 2}
+#table(dat$Cited_extr_package, useNA = "always")
+dat %>% 
+  group_by(Cited_extr_package) %>% 
+  count() %>%
+  ggplot(aes(x = Cited_extr_package, y = n)) +
+  geom_bar(stat = "identity", position = position_dodge(0.9)) +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.text.y = element_text(margin = margin(0, 5, 0, 80))) + 
+  xlab("") +
+  ylab("Number of articles") +
+  ylim(0, 100)
+```
+

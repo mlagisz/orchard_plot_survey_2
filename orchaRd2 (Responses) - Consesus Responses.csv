@@ -1,0 +1,206 @@
+Timestamp,Respondents initials,Article id,Q 1: Does a paper conduct meta-regression and/or subgroup analysis?,Comment for Q1,Q 2: Does the study has at least one categorical variable/moderator?,Comment for Q2,Q 3: Does a paper test for heteroskedasticity (heteroscedasticity)? ,Comment for Q3,Q 4: Does at least one model in a paper have more than one categorical moderator?,Comment for Q4,Q 5: Does at least one model in a paper have at least one categorical moderator and one continuous moderator? ,Comment for Q5,"Q 6: If they had a multi-moderator regression, did they run interactions? If so, what type of interactions?",Comment for Q6,Q 7: Was a plot (figure) made from a multi-moderator meta-regression? ,Comment for Q7,Q 8: Does a paper cite an R software package they used for meta-analysis?,Comment for Q8,Q 9: Does a paper cite an R software package they used for graphical presentation of meta-analytic results?,Comment for Q9,"Q 10 (Bonus Question): Does a paper cite a software package they used for data extraction for meta-analysis? (e.g. metaDigitise, PlotDigitizer)",Comment for Q10
+3/18/2022 10:47:39,"ML, JR, YY",ft029,Both,"""We tested these relationships by regressing each Zr and..."" Fig.2a is for seperate (sub) Datasets",Yes,Fig.2b,No,not mentioned,No,one moderator at a time,No,,NA,,NA,,Yes,MetaWin (Rosenberg et al. 2000),Did not use R,,No,
+3/18/2022 21:02:07,"ML, JR, YY",ft036,Both,,Yes,e.g. ,No,,No,,No,,NA,,NA,,Did not use R,used python,Did not use R,,Yes,DataThief
+3/15/2022 13:03:02,"ML, JR, YY",ft045,Both, used separate categorical random-effects models for categorical moderator; used regression for continuous moderator; see Q5,Yes,Figure 3,No,no mention,No,seperate meta-analysis,No,,NA,,NA,,Did not use R,MetaWin 2.0 (meta-analysis); Curve Expert 1.3 (meta-regression),Did not use R,,No,no mention of data extraction
+3/15/2022 13:13:49,"ML, JR, YY",ft056,Sub-group analysis,Categorical meta-analysis was performed separately for species richness and abundance in croplands and grasslands,Yes,Table 2,No,no mention,No,seperate analysis,No,no continuous moderator,NA,,NA,,Did not use R,MetaWin,Did not use R,,No,no mention of data extractions
+3/15/2022 13:29:00,"ML, JR, YY",ft088,Meta-regression,Separate exploratory analyses were also used to test the differences between a priori defined groups using a mixed-effects model (see Viechtbauer 2010). ,Yes,Figure 2,No,no mention,No,Separate exploratory analyses - univariate,No,only categorical moderator,NA,,NA,,Yes,metafor,No,,Yes,GraphClick
+3/15/2022 14:34:37,"ML, JR, YY",ft101,Meta-regression,"we analyzed LG moderated by source type in a mixed model with random factor
+paperID (see Table 1 for moderator details). Also, see Table 2's formular",Yes,Table 1,No,no mention,No,,No,,NA,,NA,,Yes,metafor,No,"no mention of packages for graphical presentation. Replies belonging to ""No"" seem also to fit the option ""Unclear"". ""No"" only fits the conditon of when we can make sure that the authors use R to make figures (according to relevant descriptions), but there are no R packages cited in the main text.  If we are not sure about whether the auhors used  R to make figures, ""Unclear"" seems a correct answer. Need to chat how do we deal with this condition?",Yes,digitize(0.0.4)
+3/19/2022 7:47:48,"ML, JR, YY",ft109,Both,,Yes,,No,,No,,Yes,"H4, H6",No,,Yes,S Fig10,Yes,metafor,No,,Yes,digitise
+3/19/2022 8:09:34,"ML, JR, YY",ft117,Sub-group analysis,,Yes,,No,,Yes,"Table 3: ""Model applied: log(effect variance) = log(sample size) + social context +
+experimental setting. Sample size reflects the average number of subjects
+tested for a given species; social context was scored as 0 for mating and 1
+for territorial defense; experimental setting was scored as 0 for laboratory
+/captive based studies and 1 for field experiments. Two-way interactions
+terms between sample size and context or setting were not statistically
+significant and were excluded from the model.""",No,,categorical x continious; categorical x categorical ,"Table 3: ""Model applied: log(effect variance) = log(sample size) + social context +
+experimental setting. Sample size reflects the average number of subjects
+tested for a given species; social context was scored as 0 for mating and 1
+for territorial defense; experimental setting was scored as 0 for laboratory
+/captive based studies and 1 for field experiments. Two-way interactions
+terms between sample size and context or setting were not statistically
+significant and were excluded from the model.""",No,,Yes,metafor,No,,Yes,Adobe Illustrator
+3/19/2022 8:17:57,"ML, JR, YY",ft125,None of the above,one-way ANOVA & regression,Yes,,No,,No,,No,,NA,,NA,,No,,No,,No,
+3/19/2022 8:23:40,"ML, JR, YY",ft140,Sub-group analysis,,Yes,,No,,Yes,Fig5,NA,,NA,,Yes,Fig5,Did not use R,MetaWin,Did not use R,,No,
+3/31/2022 15:56:03,"ML, JR, YY",ft009,Meta-regression,"""We first examined full
+models containing all six moderators (the biological effects
+described above). """,Yes,,No,,Yes,full model,Yes,full model,No,,No,,Yes,,No,"nmle, mcmcglmm",Yes,ImageJ
+3/31/2022 16:13:08,"ML, JR, YY",ft012,Meta-regression,mentions mixed-effects model with categorical moderators,Yes,,No,,No,,No,,NA,,No,,Yes,metafor,No,,No,
+3/31/2022 16:19:47,"ML, JR, YY",ft021,Meta-regression,,Yes,,No,,No,,No,,NA,,No,,Did not use R,,Did not use R,,No,
+3/31/2022 17:13:48,"ML, JR, YY",ft037,Both,,Yes,,No,,No,,No,litter amount is a categorical variable,NA,,No,,Did not use R,,Did not use R,,Yes,ImageJ
+3/31/2022 17:21:26,"ML, JR, YY",ft068,Both,subgroup by breeder type meta-regression for other moderators,Yes,"""In a mixed-effects meta-regression model (table 1) random
+between-study heterogeneity was partitioned by fixed moderator
+variables: local climate change index interacting with broodedness,
+latitude of the breeding grounds (converted to decimal degrees),
+migratory habits (dummy variable: sedentary/migratory) and
+the average female body mass for each species.""",No,,Yes,"""In the final model for the rate of change in the breeding season length (table 1), the number of broods (single/multibrooded)
+was entered as an explanatory dummy variable,
+together with its interaction with the local climate change
+index (see Material and Methods), as we expected the opposite
+responses in both groups. The other moderators were the
+latitude of the population, average female body mass and
+migratory habits of the species.""",Yes,"""In the final model for the rate of change in the breeding season length (table 1), the number of broods (single/multibrooded)
+was entered as an explanatory dummy variable,
+together with its interaction with the local climate change
+index (see Material and Methods), as we expected the opposite
+responses in both groups. The other moderators were the
+latitude of the population, average female body mass and
+migratory habits of the species.""",categorical x continious,"""In the final model for the rate of change in the breeding season length (table 1), the number of broods (single/multibrooded)
+was entered as an explanatory dummy variable,
+together with its interaction with the local climate change
+index (see Material and Methods), as we expected the opposite
+responses in both groups. The other moderators were the
+latitude of the population, average female body mass and
+migratory habits of the species.""",Yes,Figure 4 and 6. is from 2 separate meta-regressions,Yes,metafor,No,,No,
+3/31/2022 18:34:43,"ML, JR, YY",ft107,Both,"""For each of our
+three analyses, we first fit an intercept-only model to
+test for an overall effect and subsequently fit a second
+model including all moderators of interest (see Table 2
+for the matching and carry-over analysis)."" But different effect types were analysed separately - see fig.3",Yes,"""For each of our
+three analyses, we first fit an intercept-only model to
+test for an overall effect and subsequently fit a second
+model including all moderators of interest (see Table 2
+for the matching and carry-over analysis).""",No,,Yes,"""For each of our
+three analyses, we first fit an intercept-only model to
+test for an overall effect and subsequently fit a second
+model including all moderators of interest (see Table 2
+for the matching and carry-over analysis).",No,,No,not mentioned,No,,Yes,mcmcglmm,Yes,arm,No,
+4/5/2022 20:17,"ML, JR, YY",ft128,Meta-regression,phylogenetic generalized least square regression,Yes,,Yes,"All the variables were log-transformed before the analyses to normalize residuals and
+reduce heteroscedasticity.",Yes,"altitude, latitude, body size, insularity, parental care and larval development as predictors.",Yes,,categorical x categorical; continious x continuous; continious x categorical,"""To avoid over parametrization and collinearity, we started with a model including all the second-order interactions with altitude, latitude, body size, insularity, parental care and larval development as predictors.""",No,no figure,Yes,Caper,No,no figure,Yes,ImageJ
+3/31/2022 20:18:33,"ML, JR, YY",ft150,Meta-regression,,Yes,,No,,Yes,,No,,No,,Yes,Fig1b,Yes,mcmcglmm,No,,No,
+3/31/2022 20:47:56,"ML, JR, YY",ft181,Both,"meta-regression not mentioned, possibly MA models only for subsets",Yes,"""The experimental factors were all analyzed as categorical variables.""",No,,No,unlikely,No,"""The experimental factors were all analyzed as categorical variables.""",NA,,No,,Yes,metafor,No,,No,
+3/31/2022 20:53:36,"ML, JR, YY",ft187,None of the above,,No,,No,,No,,No,,NA,,No,,Did not use R,Comprehensive Meta Analysis version 2,Did not use R,,No,
+4/10/2022 1:25,"ML, JR, YY",ft003,Meta-regression,,Yes,tested the influence of four fixed factors on the magnitude of indirect benefits,No,,Yes,"Table S2, S3",No,tested the influence of four fixed factors on the magnitude of indirect benefits,categorical x categorical,"Table S2, S3",No,Figure 1 is from model 12 (with one moderator),Yes,MCMCglmm,No,,No,
+5/14/2022 0:58:36,"ML, JR, YY",ft008,Both,seperate dataset (figure 4) and linear mixed effect models,Yes,e.g. functional groups,No,,Yes,"Biome was included as a fixed main effect and
+angiosperm/gymnosperm, deciduous/evergreen groups were
+included as a fixed main effect and an interaction term with
+climate (SPEI and temperature).",Yes,Table 1,"categorical x categorical, categorical x continious, continious x continious","Table 1. Biome was included as a fixed main effect and angiosperm/gymnosperm, deciduous/evergreen groups were included as a fixed main effect and an interaction term with climate (SPEI and temperature).",Yes,"Figure 4, 6",Yes,lme4,No,"mentioned R, but not specific name",No,no mention
+4/15/2022 19:08:17,"ML, JR, YY",ft011,Meta-regression,"""We used between-group heterogeneity (Q between) to determine the differences
+in effect size between different life forms """,Yes,"e.g. life forms, table S1; ""We used between-group heterogeneity (Q between) to determine the differences
+in effect size between different life forms """,No,,Yes,run as GLM; Figure 2,No,,No,,No,,Did not use R,Meta Win ; but used R for other analyses ,No,Meta Win ; but used R for other analyses ,Yes,Getdata Graph Digitizer 2.25 (http://www.getdata-graph-digitizer.com)
+5/14/2022 1:08:14,"ML, JR, YY",ft017,Both,"Mixed effect model and 'we tested hierarchically the effect of parasitoid-feeding strategy
+within each type of host-feeding strategy and then the effect of latitude and temperature within the four categories of host ! parasitoid-feeding strategies' (figure 2)",Yes,We tested the effect of four covariates,No,Appendix S4 - normal quantile plot,No,,No,"We used a mixed-effect model to assess between-class heterogeneity
+(for each categorical covariate",NA,,No,univariate,Did not use R,METAWIN,Did not use R,,No,no mention
+4/15/2022 20:45:27,"ML, JR, YY",ft018,Both,"""We fitted meta-regressions with single covariates using our data"". ""By creating subsets of the data, we could test categorical covariates in
+the meta-regressions that could not be examined with the complete
+dataset because they did not have sufficient representation or were not
+relevant for all cases.""",Yes,Table 1,No,,Yes,Table 1,Yes,"""The primary goal of the meta-regressions was to determine the importance of each covariate as it relates to the strength of the latitudinal gradient (z). """,No,no interactions of covariates was constructed for model averaging,No,"""A candidate set of models with all possible first-level combinations (no interactions) of covariates was constructed for model averaging""",Yes,metafor,No,,Yes,ImageJ (in SI)
+5/14/2022 11:32:07,"ML, JR, YY",ft019,Both,"mixed model for moderator variabes, but sepaate measures (Figure 1)",Yes,we evaluated the significance of the following life-history traits as a moderator variable,No,,Yes,,Yes,We ran a full linear mixed model that included moderator variables and their interactions as fixed effects,categorical x categorical,multivariate model with all categorical variables,No,,Did not use R,MetaWin,Did not use R,,Yes,GetData Graph Digitizer 2.24 
+5/14/2022 11:44:00,"ML, JR, YY",ft024,Both,categorical moderators used subgroup analysis; continuous variable (publication year) used regression,Yes,Figures 1 & 2,No,,No,univariate,No,univariate,NA,univariate,No,univariate,Did not use R,Metawin,Did not use R,,No,
+5/14/2022 12:04:27,"ML, JR, YY",ft025,Both,Table 1 - separate dataset with claimed mixed model (but metawin is not able to do mixed model),Yes,"different types of studies (i.e. regional versus local, experimental versus observational, animals versus plants versus microorganisms, terrestrial versus aquatic).",No,,No,univariate,No,univariate,NA,univariate,No,Figure 2 is not a 'marginal' one - it is a combination of different separate subgroup analyses,Did not use R,METAWIN,Did not use R,,Yes,GETDATA GRAPH DIGITIZER
+5/14/2022 12:19:32,"ML, JR, YY",ft027,Both,Figure 2 and 'categorical and continuous meta-analyses to test for the effect of seven different factors',Yes,,No,,Yes,Table S1,No,,categorical x categorical,Table S1; e.g. Biome x Disturbance,No,,Did not use R,MetaWin,Did not use R,,Yes,GetData Graph Digitizer
+5/14/2022 12:57:31,"ML, JR, YY",ft028,Meta-regression,A series of meta-regression models were constructed to identify significant sources of heterogeneity and to examine effect sizes at separate levels for the moderators listed above (i.e. subset analyses).,Yes,"moderators in the meta-regression analyses described below. These included nine variables, which contained either inherent biological or methodological information",No,,Yes,model selection - Table S21,Yes,model selection - Table S21,No,model selection - Table S21,Yes,,Yes,MCMCglmm,No,,Yes,GetData Graph Digitizer (suplement)
+4/12/2022 18:22,"ML, JR, YY",ft030,Both,"subgroup analysis for two separate traits; within each trait, meta-regression was used",Yes,trait class,No,,Yes,"model selection - TableS 7.1 the variance component (additive, maternal,
+residual), trait class (life history, morphology), stress level (low,
+high), novelty of conditions (novel, not novel), design (half-sib,
+NC, pedigree), and age class (adult, juvenile), and the following
+interactions: variance component × trait class, variance component×stress
+level, variance component×novelty",No,,categorical x categorical,e.g. Table S6.1,Yes,Figure 1,Yes,MCMCglmm,No,,Yes,xyscan
+5/14/2022 15:11:15,"ML, JR, YY",ft032,Meta-regression, generalized linear mixed-effect models; Table 1 (response variable) and Table 2,Yes,Table 1,No,,Yes,Table 1,No,,categorical x categorical,Table 1,No,,Yes,lme4,No,,No,
+5/14/2022 15:44:54,"ML, JR, YY",ft033,Both,"A meta-analysis was performed on each data set to test whether the prevalence of hybrids was homogeneous across studies; within ean dataset, regression was used",Yes,table 1,No,,No,,Yes,,categorical x continious,,Yes,figure 2 and table S6,Yes,metafor,No,,No,
+5/14/2022 16:17:58,"ML, JR, YY",ft034,Meta-regression,we added the predation levels and counting methods described above as fixed factors to identify the effects of these two variables,Yes,we added the predation levels and counting methods described above as fixed factors to identify the effects of these two variables,No,,No,univariate,No,,NA,univariate,No,,Yes,MASS; lme4; MCMCglmm,No,,No,
+4/15/2022 23:30:02,"ML, JR, YY",ft039,Meta-regression,Table 3,Yes,Table 3,No,,Yes,Table 3,Yes,Table 3,"categorical x continious, continious x continious",Table 3,No,,No,,No,,No,
+4/15/2022 23:44:47,"ML, JR, YY",ft040,Meta-regression,,Yes,,No,,Yes,,No,SI,categorical x categorical,Figure 4,Yes,Figure 4,Unclear,no info on software,Unclear,no info on software,Yes,WebPlotDigitizer
+5/14/2022 16:30:01,"ML, JR, YY",ft041,Meta-regression,,Yes,equation 1 and table 2,No,,No,equation 1 and table 2,Yes,equation 1 and table 2,continious x continious,We included a MAP by MAT interaction to account for the possibility that the Q10 value depends on water availability,No,,Did not use R,OpenBUGS,Did not use R,,No,
+4/15/2022 23:50:28,"ML, JR, YY",ft044,Meta-regression,"""We assessed the effect of different moderator vari-
+ables by using them as a grouping variable in an ANOVA-like design or by conducting a
+meta-regression with a continuous predictor. """,Yes,,No,,No,,No,,NA,,No,,No,used R,No,used R,No,
+5/14/2022 16:37:42,"ML, JR, YY",ft047,Meta-regression,,Yes,trait types,No,,No,univariate,No,univariate,NA,univariate,No,univariate,Yes,MCMCglmm,No,,No,
+5/14/2022 17:04:41,"ML, JR, YY",ft053,Meta-regression,,Yes,table 1,No,,Yes,table 1 and multivariate ANOVA (table 5),Yes,,"categorical x categorical, categorical x continious",table 1 and multivariate ANOVA (table 5),No,,Did not use R,OpenMEE; ,No,,Yes,Datathief
+4/16/2022 22:27:08,"ML, JR, YY",ft054,Both,"""Based on those results, I analyzed subsets of the data to reduce heterogeneity and generate more interpretable results""",Yes,,No,,Yes,Table 1,No,,No,,No,,Yes,metafor,No,,No,
+4/17/2022 7:18:51,"ML, JR, YY",ft055,Meta-regression,,Yes,Table 2,No,,Yes,Table 2,Yes,Table 2,"categorical x categorical, categorical x continious",Table 2,Yes,Figure 1,No,,No,,No,
+5/14/2022 17:25:53,"ML, JR, YY",ft060,Meta-regression,"To see species-specific effects, we used species as a fixed factor with study
+as a random factor in an alternative meta-analytic model (i.e. meta-regression;",Yes,,No,,Yes,"model selection, also Figure 2B, Table S4",Yes,"The effects of the moderators depicted in (b) are based upon average values for year, abnormal compared with standard diets - Table S4",No,,Yes,Figure 2B,Yes,MCMCglmm,No,,Yes,GetData
+5/14/2022 17:46:04,"ML, JR, YY",ft061,Sub-group analysis,"each of the four types of state-variable (metabolic rate, hormone levels, body mass and body size) separately",Yes,table 2 - state-variable,No,,No,univariate,No,univariate,NA,univariate,No,univariate,Yes,MCMCglmm,No,,No,
+4/17/2022 7:29:36,"ML, JR, YY",ft062,Meta-regression,,Yes,,No,,Yes,Figure 1,No,Table 1,No,not mentioned,Yes,Figure 1,Yes, MCMCglmm,No,,No,
+5/14/2022 17:58:34,"ML, JR, YY",ft064,Meta-regression,table 1,Yes,we studied five explanatory variables - table 1,No,,No,univariate,No,univairate,NA,univariate,No,,Did not use R,Metawin,Did not use R,,No,
+4/17/2022 7:40:38,"ML, JR, YY",ft065,Both,"""To examine the influence of the scale of range measurement and
+taxonomic grouping on the relationship, we ran separate mixed-
+effects models for each niche category using the effect size as the
+response variable and scale of range measurement (comprehensive
+vs. partial) and taxonomic group as explanatory factors""",Yes,"""To examine the influence of the scale of range measurement and
+taxonomic grouping on the relationship, we ran separate mixed-
+effects models for each niche category using the effect size as the
+response variable and scale of range measurement (comprehensive
+vs. partial) and taxonomic group as explanatory factors""",No,,No,tables,No,,NA,,No,,Yes,metafor,No,,Yes,ImageJ
+5/14/2022 18:08:37,"ML, JR, YY",ft066,Meta-regression,table 1,Yes,We tested the effect of five covariates (hereafter termed ‘moderators’) - table 1,No,,Yes,table 1,Yes,,"categorical x categorical, categorical x continious, continious x continious",Table S2,Yes,"Figure 2 came from the multivariate model in table 1, -fitted line likely from a multi-moderator model",Yes,metafor,No,,No,
+4/17/2022 7:49:12,"ML, JR, YY",ft067,Meta-regression,,Yes,Figure 3b,No,,Yes,Figure 3b,Yes,Figure 3b,categorical x continious,Figure 3b,Yes,Figure 3b,Yes,"metaphor, MCMCglmm",No,,No,
+5/14/2022 18:27:49,"ML, JR, YY",ft074,Both,ANOVA (initial number of seeds) and logsitic regression,Yes,15 variables,No,,No,"All analyses were univariate because the 15 trial characteristics had many missing values
+(e.g. no studies had information on all 15 characteristics).",No,,NA,"note that Tabls S2 seems a interaction, but the ""combination"" is just a variable name, not meaning the combination of two variables",No,,Did not use R,SAS,Did not use R,,No,
+4/17/2022 16:29:26,"ML, JR, YY",ft075,Meta-regression,mostly ANCOVA,Yes,,No,,No,,Yes,Fig1,categorical x continious,"""To examine the effect of CO2 among all species in the study, we performed a weighted ANCOVA for each trait with CO2 concentration as covariate, species as a factor, and a potential interaction between the two.""",No,Figure 1,No,,No,,Yes,Datathief
+5/14/2022 18:45:14,"ML, JR, YY",ft077,Sub-group analysis,"Tabls S1 - each level has its own Q, so it is sub-group analysis",Yes,trait types,No,,No,,No,,NA,"the interaction mentioned in the paper is a 'interaction effect size', not the interration between two moderators",No,,No,"mentioned R, but no naming",No,,Yes,GetData Graph Digitizer
+4/17/2022 20:27:10,"ML, JR, YY",ft078,Both,,Yes,,Yes,,No,,No,,NA,,No,,Yes,lme4,No,,No,
+5/14/2022 19:03:45,"ML, JR, YY",ft079,Meta-regression,GLMM,Yes,table 4,No,,Yes,"model selection, table 4",Yes,table 4,"categorical x categorical, categorical x continious",,No,Figure 1,Yes,MCMCglmm,No,,Yes,ImageJ
+5/14/2022 22:36:12,"ML, JR, YY",ft080,Both,table 2 (look at the dependent variable) - subgroup analysis; Equation 1 - mixed model,Yes,,No,,No,univariate,No,univairate,NA,univariate,No,,Did not use R,S-Plus,Did not use R,,No,
+4/17/2022 20:32:04,"ML, JR, YY",ft081,None of the above,,No,,No,,No,,No,,NA,,No,,Yes,MCMCGLMM,No,,No,
+4/17/2022 20:37:12,"ML, JR, YY",ft082,Meta-regression,,Yes,,No,,Yes,Table 3,Yes,,No,,No,,Yes,,No,,Yes, WebPlotDigitizer
+4/17/2022 20:45:47,"ML, JR, YY",ft084,Meta-regression,Table S4,Yes,,No,,No,,No,,NA,,No,,Did not use R,,Did not use R,,No,
+4/17/2022 21:10:08,"ML, JR, YY",ft087,Sub-group analysis,,Yes,,No,,No,Table S2,No,,NA,Table S2,No,,Did not use R,,Did not use R,,Yes,ImageJ
+4/17/2022 21:20:25,"ML, JR, YY",ft089,Both,,Yes,,No,,No,,No,,NA,,No,use MetaWin - can't do multi-moderator MR,Did not use R,MetaWin,Did not use R,,Yes,Image Tool
+4/17/2022 21:26:03,"ML, JR, YY",ft090,Meta-regression,,Yes,,No,,No,,No,,NA,,No,,Yes,,No,,No,
+5/14/2022 23:28:57,"ML, JR, YY",ft091,Sub-group analysis,table 1,Yes,table 1,No,,No,univairate,No,univairate,NA,univairate,No,,Did not use R,MetaWin,Did not use R,,No,
+4/17/2022 21:32:29,"ML, JR, YY",ft092,Meta-regression,,Yes,,Yes,,Yes,,Yes,,"categorical x continious, continious x continious",Table 1,No,,No,"mentioned,  not cited",No,,Yes,GetData Graph Digitizer
+5/14/2022 23:34:15,"ML, JR, YY",ft093,Meta-regression,"We used meta-regression to investigate whether the effect of early diet on longevity was mediated by manipulation type, post-treatment diet, sex, stage of manipulation, vertebrate
+versus invertebrate and whether catch-up growth was observed (table 1)",Yes,table 1,No,,Yes,We then fitted a model including all moderators,No,all categorical moderators,No,,Yes,figure 1b and 1d,Yes,MCMCglmm,Yes,coefplot in the R library arm,No,
+4/17/2022 21:36:36,"ML, JR, YY",ft095,Both,,Yes,,No,,No,,No,,NA,,No,,No,"mention, but no citation ",No,"mention, but no citation ",Yes,Datathief
+5/14/2022 23:43:55,"ML, JR, YY",ft096,Both,by fitting separate models for each trait and regression moderator analyses,Yes,figure 2,No,,Yes,"To explicitly evaluate whether the slopes of this relationship differed among selective agents included in Questions 1 and 2, we fit models that included the selective agent, offspring-number response and their interaction as fixed effects",Yes,"To explicitly evaluate whether the slopes of this relationship differed among selective agents included in Questions 1 and 2, we fit models that included the selective agent, offspring-number response and their interaction as fixed effects",categorical x continious,,No,Figure 3,Yes,MCMCglmm,No,,Yes,ImageJ
+4/18/2022 8:27:36,"ML, JR, YY",ft098,Meta-regression,,Yes,"""we found no effects of these variables on our results (difference in size: Q=0.260, p=
+0.610; taxonomic family: Q=0.158, p=0.691)""",No,,No,,No,,NA,,No,,Yes,metafor (SI),No,,No,
+5/14/2022 23:54:42,"ML, JR, YY",ft104,Both,"For linear and quadratic selection gradients and linear selection differentials, separate models were considered that contained an additional moderator variable of either trait class (morphology versus life history) or taxa (plants versus vertebrates; there were insufficient data available for invertebrates)",Yes,"mean-centred logarithm of N was included as a continuous moderator variable, in addition to the categorical moderators",Yes,"""For selection coefficients, weak evidence for heteroscedasticity was found;""",Yes,,Yes,Table 1;  also an interaction term of trait class or taxa with N,categorical x continious,an interaction term of trait class or taxa with N  and Table H1,Yes,Figure 3,Yes,MCMCglmm,No,,Yes,ImageJ
+4/18/2022 8:32:30,"ML, JR, YY",ft105,Both,,Yes,,No,,No,,No,,NA,,No,,Did not use R,MetaWin,Did not use R,MetaWin,No,
+4/18/2022 8:41:27,"ML, JR, YY",ft110,Both,,Yes,,No,,No,used MetaWin,No,only categorical moderators used,No,,No,,Did not use R,"""To explore ecological and methodological heterogeneity between studies, we investigated the relationship between treatment effects (Hedges’ d) and categorical variables that were defined a priori with random-effects metaregression (univariate and multivariate) in the pro-
+gram Metareg (Stata Corporation) (Sharp 1998).""",Did not use R,,No,
+4/18/2022 8:48:07,"ML, JR, YY",ft112,Sub-group analysis,"""The summary effect for the meta-analysis was calculated separately for insect and piscivorous predator experiments.""",No,"""The summary effect for the meta-analysis was calculated separately for insect and piscivorous predator experiments.""",No,,No,,No,,NA,,No,,Yes,meta,No,,No,
+4/18/2022 9:12:13,"ML, JR, YY",ft115,Both,"Fig4, Qb estimated",Yes,,No,,No,,No,,NA,,No,,Did not use R,MetaWin,Did not use R,MetaWin,No,
+4/18/2022 10:16:01,"ML, JR, YY",ft120,Meta-regression,"""""We modeled Hedges' d by applying a linear mixed-effects model with time since addition of dead wood and association of taxa with dead wood (saproxylic or non-saproxylic) as
+moderators to test whether the response of saproxylic and non-
+saproxylic taxa differed""""",Yes,,No,,No,,Yes,"""We modeled Hedges' d by applying a linear mixed-effects model with time since addition of dead wood and association of taxa with dead wood (saproxylic or non-saproxylic) as
+moderators to test whether the response of saproxylic and non-
+saproxylic taxa differed""",No,,Yes,Fig A1,Yes,metafor,No,,Yes,PLOT DIGITIZER 2.6.2
+5/15/2022 0:03:25,"ML, JR, YY",ft121,Both,We thus included these variables as fixed effects in our linear mixed-effects models and Figure 1 for separate dataset,Yes,full model,No,,No,,Yes,We began with a full model including an interaction between geographic distance and peer review,categorical x continious,We began with a full model including an interaction between geographic distance and peer review,No,Figure 1 is not marginal estimate because variables in right-y-axis are not included in the full model,Did not use R,S-Plus,Did not use R,,No,
+5/15/2022 0:29:52,"ML, JR, YY",ft122,Meta-regression,mixed effect model,Yes,table 2,No,,Yes,model selection also table 2,No,,No,no interaction,No,figure 3 comes from separate univariate model,Yes,MCMCglmm,No,,No,
+4/18/2022 10:35:49,"ML, JR, YY",ft126,Both,Table1,Yes,Table1,No,,No,,No,,NA,,No,,Yes,metafor,No,,No,
+4/18/2022 10:41:33,"ML, JR, YY",ft127,Meta-regression,,Yes,"""We constructed a mixed model with fixed effects for log prey richness, response variable
+type, prey type, community subset, consumer taxonomic richness, latitude, and experiment length.""",No,,Yes,"""We constructed a mixed model with fixed effects for log prey richness, response variable
+type, prey type, community subset, consumer taxonomic richness, latitude, and experiment length.""",Yes,"""""We constructed a mixed model with fixed effects for log prey richness, response variable
+type, prey type, community subset, consumer taxonomic richness, latitude, and experiment length.""",No,,No,,Yes,nlme and lme4,No,,Yes,ImageJ
+5/15/2022 0:37:42,"ML, JR, YY",ft131,Meta-regression,,Yes,"laboratory vs. field experiments, damage type, plant growth
+form, habitat characteristics, conspecific vs. heterospecific
+cues, and the type of response that was measured",No,,Yes,multivariate model - Table S1. But  the also reported results from the univariate models,No,,No,,No,,Yes,MCMCglmm,No,,No,
+4/18/2022 10:52:33,"ML, JR, YY",ft133,Both,,Yes,,No,,No,used MetaWin,No,,NA,,No,,Did not use R,MetaWin,Did not use R,MetaWin,No,
+5/15/2022 0:44:40,"ML, JR, YY",ft134,Both,"studies were subdivided into corresponding groups, and between-group heterogeneity, mixed-effect models used
+was examined using the x2 statistic Q",Yes,"Several potential explanatory variables were tested, including study perspective (plant or herbivore), plant life form (woody, herb, grass), type of defense (chemical, physical,
+induced defense, tolerance), phylogeny (plant family), and herbivore type (mammal, insect, mollusk, bird",No,,No,univariate,No,univariate,NA,univariate,No,univariate,Did not use R,MetaWin,Did not use R,,No,
+4/18/2022 10:56:47,"ML, JR, YY",ft135,Meta-regression,Fig1,Yes,"""As moderators, we tested level of study (within-species versus across-species comparisons), type of direct  defences (chemical or mechanical) and type of reward (EFNs, domatia and/or food bodies) offered by the plants to ants. """,No,,No,used MetaWin,No,,NA,,No,,Did not use R,MetaWin,Did not use R,MetaWin,No,
+5/15/2022 0:51:04,"ML, JR, YY",ft137,Sub-group analysis,"Means are from weighted, random effects categorical meta-analyses for each separate response variable",Yes,trait type,No,,No,,No,,NA,,No,,Yes,metafor,No,,No,
+5/15/2022 0:58:24,"ML, JR, YY",ft138,Sub-group analysis,subset by taxonomy,Yes,taxonomy,Yes,SI,No,,No,,NA,,No,,Did not use R,PHYLOMETA,Did not use R,,No,
+4/18/2022 11:05:12,"ML, JR, YY",ft139,Both,Fig2,Yes,"""Categorical models were used to compare effect sizes among types of 1) treatments, 2) target invaders, and 3) secondary invaders.""",No,,No,used MetaWin,No,used MetaWin,NA,,No,,Did not use R,MetaWin,Did not use R,MetaWin,Yes,Web Plot Digitizer
+5/15/2022 12:28:35,"ML, JR, YY",ft143,Both, table 1 & Regressions of effect sizes against time since herbivory were therefore conducted to determine the importance of such variation for between-class heterogeneity analyses.,Yes,table 1,No,,No,"Table1, univariate",No,univariate,NA,,No,,Did not use R,SAS,Did not use R,,No,
+5/15/2022 12:36:43,"ML, JR, YY",ft144,Both,Meta-regressions were performed separately to evaluate the relationships between covariates and effect sizes for above- or below-ground biomass (Table S1),Yes,table S1,No,,No,univariate,No,univariate,NA,univariate,No,,Yes,metafor,No,,Yes,ImageJ
+4/18/2022 11:11:29,"ML, JR, YY",ft148,Both,,Yes,"""To explore ecological and methodological heterogeneity between studies, the relationship between treatment effects and categorical variables that were defined a priori was investigated using random effects standardised mean difference meta-regression (univariate and multivariate) in Stata using the program Metareg (Sharp, 1998).""",No,,No,used Stata and MetaWin,No,used Stata and MetaWin,NA,,No,,Did not use R,used Stata and MetaWin,Did not use R,used Stata and MetaWin,No,
+5/15/2022 12:49:01,"ML, JR, YY",ft151,Meta-regression,mixed model only,Yes,table 1,No,,Yes,"full model - Models for every possible combination of moderator pairs were fitted, such that the effect of each moderator was modelled together with each one of the rest of the moderators.",No,,No,,No,,Yes,MCMCglmm,No,,No,
+4/18/2022 11:19:12,"ML, JR, YY",ft155,Both,Table 1,Yes,,No,,No,,Yes,Appendix 6,categorical x continious,Appendix 6,No,,No,,No,,Yes,SigmaScanPro
+5/15/2022 12:56:43,"ML, JR, YY",ft156,Both,separate fixed effect model (table 1) and multivariate regression analyses,Yes,,No,,Yes,,Yes,"latitude, age",No,,Yes,Figure 1,Did not use R,COMPREHENSIVE META-ANALYSIS,No,,Yes,IMAGEJ
+4/18/2022 11:26:27,"ML, JR, YY",ft163,Both,"""In order to deal with non-independence of moderators, we analy-
+sed effects of moderators within the largest subgroups of data sepa-
+rately. Within experiments using perennial grasses, we tested the
+effects of fertilization, treatment and setting.""",Yes,Table 1,No,,No,,No,,NA,,No,,Yes,meta,No,,Yes,GraphClick
+4/18/2022 11:32:26,"ML, JR, YY",ft164,Meta-regression,,Yes,,No,,Yes,TableS3,Yes,,continious x continious,Table S3 (number of pairs x mass),Yes,Figure 1,Yes,MCMCglmm,No,,No,
+5/15/2022 13:03:50,"ML, JR, YY",ft165,Meta-regression,linear mixed models,Yes,only one,No,,No,only one,No,,NA,univariate,No,,Yes,nlme,No,,No,
+4/18/2022 12:07:22,"ML, JR, YY",ft166,Both,Table 1,Yes,Table 1,No,,Yes,table 2,No,,categorical x categorical,Table 2,No,e.g. Figure 1 - abundance and diversity run in separate models,Unclear,,No,,No,
+4/18/2022 12:15:20,"ML, JR, YY",ft167,Both,"""We ran separate random-effects meta-analyses on effect sizes that were not combined by study,
+grouping by transmission mode and response measure.""",Yes,"""Sources of Heterogeneity: Transmission Mode, Response Measure, and Study Type""",No,,No,,No,,NA,,No,,Yes,PhyloMeta in R,No,PhyloMeta in R,No,
+4/18/2022 12:25:02,"ML, JR, YY",ft169,Meta-regression,,Yes,,No,,No,,Yes,,No,,No,,Yes,MCMCglmm,No,,No,
+4/18/2022 12:31:33,"ML, JR, YY",ft173,Meta-regression,,Yes,,No,,Yes,"""Our final mixed-effects model shows significance in two main effects, but not their interaction: the relationship with the focal species (direct or indirect) and the type of ecological response (abundance, rate or composition).""",No,,categorical x categorical,"""Our final mixed-effects model shows significance in two main effects, but not their interaction: the relationship with the focal species (direct or indirect) and the type of ecological response (abundance, rate or composition).""",Yes,Figure 3,Yes,metafor,No,,No,
+5/15/2022 13:10:31,"ML, JR, YY",ft174,Sub-group analysis,subgroups of data divided into pollinator mobility (mobile versus less mobile),Yes,figure 3,No,,No,univariate,No,,NA,,No,,Did not use R,,Did not use R,R style forest plot but not citation,Yes,DATATHIEF
+4/18/2022 12:41:23,"ML, JR, YY",ft175,Both,,Yes,""" Similarly, we tested the null hypotheses of no fixed difference in
+effect of turf algae on the abundance of canopy algae
+recruits between (1) functional groups of turf, (2)
+microscopic and macroscopic recruits, and (3) inter-
+tidal and subtidal reefs""",No,,No,,No,,NA,,No,,Yes,metafor,No,,Yes,PlotDigitizer
+4/18/2022 12:48:14,"ML, JR, YY",ft177,Meta-regression,,Yes,"""We used mixed-effects models (MEMs) with the same random effects to identify host, parasite and methodological correlates of effect sizes. Our full model included the following fixed effects: condition quantification, external measure, size mea-sure, host thermoregulation, parasite type, thermoregulation–parasite type interaction, sampling method, model approach and study duration (for observational data). Candidate sets of all possible MEMs excluding collinear predictors and missing values were generated for each data set """,No,,Yes,"""We used mixed-effects models (MEMs) with the same random effects to identify host, parasite and methodological correlates of effect sizes. Our full model included the following fixed effects: condition quantification, external measure, size mea-sure, host thermoregulation, parasite type, thermoregulation–parasite type interaction, sampling method, model approach and study duration (for observational data). Candidate sets of all possible MEMs excluding collinear predictors and missing values were generated for each data set """,No,"""We used mixed-effects models (MEMs) with the same random effects to identify host, parasite and methodological correlates of effect sizes. Our full model included the following fixed effects: condition quantification, external measure, size mea-sure, host thermoregulation, parasite type, thermoregulation–parasite type interaction, sampling method, model approach and study duration (for observational data). Candidate sets of all possible MEMs excluding collinear predictors and missing values were generated for each data set """,categorical x categorical,Table 3,Yes,Figure S6,Yes,metafor,No,,No,
+4/18/2022 12:58:25,"ML, JR, YY",ft179,Both,richnes and abundance analysed separately,Yes,,No,,Yes,,Yes,S2b,"categorical x categorical, categorical x continious","""We also used an information-theoretic approach to evaluate the
+potentially non-independent and interactive effects of five of the six
+explanatory variables (except ‘type of secondary FS’, due to the small
+sample size) in factorial meta-regression models (see Methods""",No,,Yes,metafor,No,,Yes,PlotDigitizer
+5/15/2022 13:16:22,"ML, JR, YY",ft188,Both,"in a range of mixed models, with plant traits, life history characteristics and geographic scale as independent variables",Yes,,No,,Yes,table 1 and Supporting table 4,Yes,,categorical x categorical,,No,,Did not use R,SPSS,Did not use R,,No,
