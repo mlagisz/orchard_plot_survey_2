@@ -1,6 +1,6 @@
 ---
 title: "Supporting Material A"
-author: "Shinichi Nakagawa, Malgorzata Lagisz, Rose E. O’Dea, Joanna Rutkowska, Yefeng Yang, Daniel W.A. Noble, and Alistair M. Senior"
+author: "Shinichi Nakagawa, Malgorzata Lagisz, Rose E. O’Dea, Patrice Poitter, Joanna Rutkowska, Alistair M. Senior, Yefeng Yang, Daniel W. A. Noble"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   html_document:
